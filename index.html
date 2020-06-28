@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Redir</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css@1.3.0/css/sakura.css">
+    <link rel="shortcut icon" href="./favicon.png" type="image/png">
+</head>
+<body>
+    <h3>WhatsApp Redir</h3>
+
+    <form method="GET">
+        <p>
+            <label for="form__phone">Phone number:</label>
+            <input id="form__phone" name="phone" type="text" autofocus required>
+        </p>
+
+        <p>
+            <button formaction="https://web.whatsapp.com/send" type="submit">Open in Web</button>
+            <button formaction="https://api.whatsapp.com/send" type="submit">Open in App</button>
+        </p>
+    </form>
+
+    <script>
+        document.getElementById('form__phone').oninput = (evt) => {
+            evt.target.value = evt.target.value.replace(/[^0-9]/g, '')
+        }
+    </script>
+</body>
+</html>
