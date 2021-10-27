@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Redir</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@1.4.0/dist/light.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
     <link rel="shortcut icon" href="./favicon.png" type="image/png">
 </head>
 <body>
     <h3>WhatsApp Redir</h3>
 
-    <form method="GET">
+    <form method="GET" rel="noreferrer">
         <p>
             <label for="form__phone">Phone number:</label>
-            <input id="form__phone" name="phone" type="text" autofocus required>
+            <input id="form__phone" type="text" autofocus required>
+        </p>
+
+        <p>
+            <label for="form__clean">Cleaned phone number:</label>
+            <input id="form__clean" name="phone" type="text" readonly tabindex="-1">
         </p>
 
         <p>
@@ -25,7 +30,7 @@
 
     <script>
         document.getElementById('form__phone').oninput = (evt) => {
-            evt.target.value = evt.target.value.replace(/[^0-9]/g, '')
+            document.getElementById('form__clean').value = evt.target.value.replace(/[^0-9]/g, '')
         }
     </script>
 </body>
